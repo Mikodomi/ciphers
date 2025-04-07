@@ -21,3 +21,13 @@ char shift(char value, int key) {
     }
     return res;
 }
+
+int num_in_alphabet(char value) {
+    if (is_upper(value)) {
+        return value - 'A';
+    }
+    if (is_lower(value)) {
+        return value - 'a';
+    }
+    return -1;
+}

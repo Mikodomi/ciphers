@@ -2,11 +2,11 @@
 #include <stdlib.h>
 #include <stdint.h>
 #include <string.h>
-#include "misc.h"
+#include "../misc.h"
 
 char* caesar(const char* input, int key) { // freed by caller!
     const uint32_t size = strlen(input);
-    char* result = malloc(strlen(input));
+    char* result = malloc(size);
     for (uint32_t i = 0; i<size; i++) {
         char value = input[i];
         if (!is_letter(value)) {

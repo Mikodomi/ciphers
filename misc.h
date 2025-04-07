@@ -6,5 +6,6 @@ int is_upper(char value);
 int is_lower(char value);
 
 char shift(char value, int key);
+int num_in_alphabet(char value); // 0-indexed
 
 #endif
