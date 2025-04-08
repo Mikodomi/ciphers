@@ -42,7 +42,7 @@ char* decrypt(const char* text, const char* key) {
 }
 
 int main(int argc, char** argv) {
-    if (argc < 2) {
+    if (argc < 2) { //TODO: EVERYWHERE COOL FLAGS
         printf("\tUsage: \n\t\t-e - encrypt  \n\t\t-d - decrypt\n");
         return 0;
     }
