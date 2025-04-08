@@ -15,7 +15,7 @@ char* encrypt(const char* text, int rails) {
             index += jump;
             cipher_ind++;
             if (text[index] == '\n') break;
-            if (i > 0 && i < rails-1) {
+            if (i > 0 && i < rails-1 && index < size && cipher_ind < size) {
                 cipher[cipher_ind] = text[index]; 
                 index += (2*(rails-1) - jump);
                 cipher_ind++;
@@ -48,7 +48,7 @@ int main (int argc, char** argv) {
         fclose(input);
         return 0;
     }
-    char* res = encrypt(text, 21);
+    char* res = encrypt(text, 100);
     printf("%s", res);
     free(res);
     fclose(input);

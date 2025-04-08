@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include "../misc.h"
 #include <string.h>
-#define RAILS 4
+#define RAILS 6
 
 int main() {
     char arr[RAILS][128];
@@ -13,7 +13,8 @@ int main() {
     }
 
     char input[] = "NIECHSIEDZIEJEWOLANIEBA";
-
+    
+    printf("%s\n", input);
     const int size = strlen(input);
     int vert = 0;
     int dir = 1;
