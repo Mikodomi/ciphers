@@ -1,10 +1,9 @@
 #include <stdio.h>
 #include "../misc.h"
 #include <string.h>
-#define RAILS 5
+#define RAILS 4
 
 int main() {
-    
     char arr[RAILS][128];
     for (int i = 0; i<RAILS; i++) {
         for (int j = 0; j<128-1; j++) {
@@ -13,7 +12,7 @@ int main() {
         arr[i][127] = '\0';
     }
 
-    char input[] = "My name is Walter Hartwell White. I live at 308 Negra Arroyo Lane, Albuquerque, New Mexico, 87104. This is my confession.";
+    char input[] = "NIECHSIEDZIEJEWOLANIEBA";
 
     const int size = strlen(input);
     int vert = 0;

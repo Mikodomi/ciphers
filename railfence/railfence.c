@@ -4,7 +4,30 @@
 #include <stdio.h>
 
 char* encrypt(const char* text, int rails) {
-    
+    const int size = strlen(text);
+    char* cipher = malloc(size);       
+    int cipher_ind = 0;
+    int jump = 2*(rails-1);
+    for (int i = 0; i<rails; i++) {
+        int index = i;
+        while (index < size && cipher_ind < size) {
+            cipher[cipher_ind] = text[index];
+            index += jump;
+            cipher_ind++;
+            if (text[index] == '\n') break;
+            if (i > 0 && i < rails-1) {
+                cipher[cipher_ind] = text[index]; 
+                index += (2*(rails-1) - jump);
+                cipher_ind++;
+                if (text[index] == '\n') break;
+            }
+        }
+        jump -= 2;
+        if (jump == 0) {
+            jump = 2*(rails-1);
+        }
+    }
+    return cipher;
 }
 
 char* decrypt(const char* text, int rails) {
@@ -25,7 +48,9 @@ int main (int argc, char** argv) {
         fclose(input);
         return 0;
     }
-
+    char* res = encrypt(text, 21);
+    printf("%s", res);
+    free(res);
     fclose(input);
     return 0;
 }
