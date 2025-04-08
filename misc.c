@@ -12,6 +12,14 @@ int is_letter(char value) {
     return is_upper(value) || is_lower(value);
 }
 
+int is_number(char value) {
+    return ((value >= '0') && (value <= '9'));
+}
+
+int is_alphanumeric(char value) {
+    return is_number(value) || is_letter(value);
+}
+
 char shift(char value, int key) {
     char res;    
     if (is_upper(value)) {
