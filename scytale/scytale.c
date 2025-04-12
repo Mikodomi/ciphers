@@ -22,6 +22,25 @@ char* encrypt(const char* text, int key) {
     return result;
 }
 
+char* decrypt(const char* text, int key) {
+    const int size = strlen(text);
+    char* result = malloc(size+1);
+    if (!result) return NULL;
+
+    int text_ind = 0;
+    for (int i = 0; i<key; i++) {
+        int res_ind = i;
+        while (text_ind < size && res_ind < size) {
+            result[res_ind] = text[text_ind];
+            res_ind += key;
+            text_ind++;
+        }
+    }
+
+    result[size] = '\0';
+    return result;
+}
+
 // very slow and memory inefficient - use wisely
 void visual_rep(const char* text, int key) {
     const int size = strlen(text);
@@ -47,8 +66,10 @@ void visual_rep(const char* text, int key) {
 int main() {
     visual_rep("NIECHSIEDZIEJEWOLANIEBA", 3);
     char* result = encrypt("NIECHSIEDZIEJEWOLANIEBA", 3);
+    char* res2 = decrypt("NCIZJONBIHEIELIAESDEWAE", 3);
 
     printf("%s\n", result);
+    printf("%s\n", res2);
 
     free(result);
     return 0;
