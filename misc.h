@@ -7,7 +7,11 @@ int is_upper(char value);
 int is_lower(char value);
 int is_alphanumeric(char value);
 
-char shift(char value, int key);
 int num_in_alphabet(char value); // 0-indexed
+char letter_in_alphabet(int num); // 0-indexed
 
+int polybius_coords(char value); // not 0-indexed
+char polybius_letter(int coords); // not 0-indexed
+
+char shift(char value, int key);
 #endif
